@@ -19,4 +19,4 @@ function print(){
     
 }
 
-$btn.addEventListener('click',print)
+$btn.addEventListener('click',print);
