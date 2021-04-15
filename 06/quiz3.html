@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>DOM</title>
+    <style>
+      body {
+        padding: 10px;
+      }
+      .box {
+        width: 100px;
+        height: 30px;
+        background-color: #ddd;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" class="txt" value="hello" />
+      <button class="text-btn">TEXT 넣기</button>
+      <br />
+      <button class="add-red">빨간색으로</button>
+      <button class="add-btn">추가</button>
+      <button class="delete-btn">삭제</button>
+      <button class="reset-btn">초기화</button>
+      <button class="toggle-btn">보이기,숨기기 토글</button>
+      <button class="image-btn">이미지</button>
+    </div>
+
+    <div class="box"></div>
+    
+    <script>
+        addred();
+
+        function addred(){
+            var add_red = document.querySelector('.add-red');
+            add_red.addEventListener('click',function(){
+                var box = document.querySelectorAll('.box');
+                for (var i = 0; i<box.length; i++){
+                    box[i].classList.add('red');
+                }
+            });
+        }
+
+        addbtn();
+
+        function addbtn(){
+            var add_btn = document.querySelector('.add-btn');
+            add_btn.addEventListener('click',function(){
+                var div = document.createElement('div');
+                div.classList.add('box')
+                document.body.appendChild(div);
+            });
+        }
+
+
+        deletebtn();
+
+        function deletebtn(){
+        var delete_btn = document.querySelector('.delete-btn');
+        delete_btn.addEventListener('click',function(){
+        var box=document.querySelector('.box');
+        console.log(box);
+        box.remove();
+            });
+        }
+
+
+        textbtn();
+
+        function textbtn(){
+            var text_btn = document.querySelector('.text-btn');
+            text_btn.addEventListener('click',function() {
+                var box = document.querySelectorAll('.box');
+                var txt = document.querySelector('.txt');
+                for(var i =0; i < box.length; i++){
+                    box[i].innerHTML = txt.value;
+                }
+            });
+        }
+
+        resetbtn();
+
+        function resetbtn(){
+            var reset_btn = document.querySelector('.reset-btn');
+            reset_btn.addEventListener('click',function() {
+                var box = document.querySelectorAll('.box');
+                for(var i =0; i < box.length; i++){
+                    box[i].remove();
+                }
+            });
+        }
+
+
+        togglebtn();
+
+        function togglebtn(){
+            var toggle_btn = document.querySelector('.toggle-btn');
+            toggle_btn.addEventListener('click',function() {
+                var box = document.querySelectorAll('.box');
+                console.log(box[0].style.visiblity);
+                if(box[0].style.visiblity =='visible')
+                    for(var i =0; i < box.length; i++)
+                        box[i].style.visiblity = 'hidden';
+                    
+                else 
+                    for(var i =0; i < box.length; i++)
+                        box[i].style.visiblity = 'visible';
+                           
+
+            });
+        }
+
+        imagebtn();
+
+        function imagebtn(){
+            var image_btn = document.querySelector('.image-btn');
+            image_btn.addEventListener('click',function() {
+                var box = document.querySelector('.box');
+                var src ='https://i.imgur.com/69NjYBH.png';
+                var str = '<img src'+ src + "alt=''>";
+                box.innerHTML = str;
+            });
+        }
+
+    </script>
+           
+    
+  </body>
+</html>
