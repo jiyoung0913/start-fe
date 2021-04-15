@@ -49,13 +49,13 @@
                 y2 = y1 - e.clientY;
                 x1 = e.clientX;
                 y1 = e.clientY;
-                ele.style.left = (ele.offsetLeft - x2)+ "px";
-                ele.style.top = (ele.offsetTop - y2)+ "px";
+                ele.style.left = (ele.offsetLeft - x2)+ 'px';
+                ele.style.top = (ele.offsetTop - y2)+ 'px';
             }
 
             function boxup(){
-                document.removeEventListener('moseup',boxup);
-                document.removeEventListener('mosemove',boxmove);
+                document.removeEventListener('mouseup',boxup);
+                document.removeEventListener('mousemove',boxmove);
             }
 
         }
